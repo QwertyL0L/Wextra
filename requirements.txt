@@ -2,3 +2,4 @@ discord.py
 asyncio
 httpx
 discord.ext
+python-dotenv
