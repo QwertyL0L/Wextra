@@ -11,7 +11,6 @@ from discord.ext.commands.core import guild_only
 from discord.raw_models import RawMessageUpdateEvent
 from random import choice, randint
 from discord.utils import get
-import requests
 
 bot = commands.Bot(command_prefix = "%", case_insensitive=True)
 bot.requests = httpx.AsyncClient()
