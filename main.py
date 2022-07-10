@@ -209,6 +209,13 @@ async def FU(ctx):
         "https://cdn.discordapp.com/attachments/841451660059869194/958494697762979890/MemeFeedBot.mov"
     )
 
+@bot.command()
+@commands.cooldown(1, 2, commands.BucketType.user)
+async def slap(ctx, member:discord.User=None):
+  if (member == ctx.message.author or member == None):
+      await ctx.send(f"{ctx.message.author.mention} slaps themselves! https://tenor.com/view/spongebob-punch-boxing-boxing-glove-punching-myself-gif-21654165") 
+  else:
+      await ctx.send(f"{ctx.message.author.mention} slaps {member.mention}! https://tenor.com/view/anime-slap-mad-gif-16057834")  
 
 @bot.command()
 async def OG(ctx):
