@@ -17,6 +17,7 @@ load_dotenv()
 
 bot = commands.Bot(command_prefix = "%", case_insensitive=True)
 bot.requests = httpx.AsyncClient()
+maintoken = "ODk4NTcwNTIyMjYxMDY1NzQ4.YWmJAw.yChU0fWD6gVaapjaN4vTUqGxOug" # ENTER YOUR BOT TOKEN
 blacklist = ""
 ID = "898358037239201812"  #enter your user ID
 
@@ -335,4 +336,4 @@ async def server(ctx):
 
     await ctx.send(embed=embed)
 
-TOKEN = os.getenv("DISCORD_TOKEN")
+bot.run = (maintoken)
