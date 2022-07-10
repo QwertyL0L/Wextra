@@ -147,11 +147,6 @@ async def ballz(ctx):
     )
 
 @bot.command()
-async def slap(ctx):
-    await ctx.send("<https://youtu.be/4pMDXygA688>")
-
-
-@bot.command()
 async def fatherless(ctx):
     await ctx.send("<https://youtu.be/p4-rtsidmh8>")
 
