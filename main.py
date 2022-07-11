@@ -30,7 +30,7 @@ def admin_list():
 
 @bot.event
 async def on_ready():
-    print("Bot Online!!!")
+    print(f'Logged in as {bot.user.name}')
     game = discord.Game("Idfk lol")
     await bot.change_presence(status=discord.Status.online, activity=game)
 
