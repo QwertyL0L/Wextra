@@ -12,12 +12,14 @@ from discord.ext.commands.core import guild_only
 from discord.raw_models import RawMessageUpdateEvent
 from random import choice, randint
 from discord.utils import get
+from dotenv import load_dotenv
 
 bot = commands.Bot(command_prefix = "%", case_insensitive=True)
 bot.requests = httpx.AsyncClient()
-maintoken = "ODk4NTcwNTIyMjYxMDY1NzQ4.YWmJAw.yChU0fWD6gVaapjaN4vTUqGxOug" # ENTER YOUR BOT TOKEN
 blacklist = ""
 ID = "898358037239201812"  #enter your user ID
+
+load_dotenv()
 
 def admin_list():
     def predicate(ctx):
@@ -334,4 +336,4 @@ async def server(ctx):
 
     await ctx.send(embed=embed)
 
-bot.run = (maintoken)
+bot.run(os.getenv("DISCORD_TOKEN"))
