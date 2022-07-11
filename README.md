@@ -8,4 +8,6 @@ if you're running on replit make sure to make a new secret and name the key DISC
 
 then click run and the bot should be running
 
+feel free to fork but make sure to give credit
+
 if you have any questions then feel free to contact me through discord: JackTheNoob#3403
