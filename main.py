@@ -336,4 +336,9 @@ async def server(ctx):
 
     await ctx.send(embed=embed)
 
+    @bot.command(name="summon")  # troll command
+async def p(ctx):
+    await ctx.send(f"Fuck off {ctx.message.author.mention}! Im sleeping, Bitch!")
+
+    
 bot.run(os.getenv("DISCORD_TOKEN"))
