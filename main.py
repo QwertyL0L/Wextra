@@ -339,4 +339,32 @@ async def server(ctx):
 async def p(ctx):
     await ctx.send(f"Fuck off {ctx.message.author.mention}! Im sleeping, Bitch!")
     
+@bot.command()
+async def console(ctx):
+   message = await ctx.send("H")
+   await message.edit(content=f"He")
+   await asyncio.sleep(0.7)
+   await message.edit(content="Hel")
+   await asyncio.sleep(0.7)
+   await message.edit(content=f"Hell")
+   await asyncio.sleep(0.7)
+   await message.edit(content="Hello")
+   await asyncio.sleep(0.7)
+   await message.edit(content=f"Hello T")
+   await asyncio.sleep(0.7)
+   await message.edit(content="Hello Th")
+   await asyncio.sleep(0.7)
+   await message.edit(content=f"Hello The")
+   await asyncio.sleep(0.7)
+   await message.edit(content="Hello Ther")
+   await asyncio.sleep(0.7)
+   await message.edit(content=f"Hello There {ctx.message.author.mention}")
+   await message.edit(content=f"Hello There {ctx.message.author.mention}!")
+   await asyncio.sleep(0.7)
+   await message.edit(content=f"Hello There {ctx.message.author.mention}!!")
+   await asyncio.sleep(0.7)
+   await message.edit(content=f"Hello There {ctx.message.author.mention}!!!")
+   await asyncio.sleep(0.7)
+
+    
 bot.run(os.getenv("DISCORD_TOKEN"))
