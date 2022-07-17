@@ -365,6 +365,92 @@ async def console(ctx):
    await asyncio.sleep(0.7)
    await message.edit(content=f"Hello There {ctx.message.author.mention}!!!")
    await asyncio.sleep(0.7)
-
     
+    
+@bot.command()
+async def cat(ctx):
+   message = await ctx.send("A package has Arrived!")
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"""Hi...
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"""Hi...
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"""Hi...
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"""Hi...
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(3.5)
+
+@bot.command()
+async def nuke(ctx, user: discord.Member):
+   message = await ctx.send(f"{ctx.message.author.mention} has put a nuke In {user.mention} House, it will go off in **5**")
+   await asyncio.sleep(3.5)
+   await message.edit(content=f"**4**")
+   await asyncio.sleep(1.5)
+   await message.edit(content="**3**")
+   await asyncio.sleep(1.5)
+   await message.edit(content=f"**2**")
+   await asyncio.sleep(1.5)
+   await message.edit(content="**1**")
+   await asyncio.sleep(1.5)
+   await message.edit(content=f"https://tenor.com/view/explosion-mushroom-cloud-atomic-bomb-bomb-boom-gif-4464831")
+   await asyncio.sleep(1.7)
+   await message.edit(content="**BOOM**")
+   await asyncio.sleep(3)
+   await message.edit(content=f"rip bozo {user.mention}")
+   await asyncio.sleep(3)
+   await message.edit(content=f"rest in piss {user.mention}")
+   await asyncio.sleep(3)
+   await message.edit(content=f"fatty {user.mention}")
+   await asyncio.sleep(3)
+   await message.edit(content=f"my grandma could've out ran that nuke and shes dead 💀💀💀💀 {user.mention}")
+   await asyncio.sleep(3)
+
+
 bot.run(os.getenv("DISCORD_TOKEN"))
