@@ -13,7 +13,7 @@ from random import choice, randint
 from discord.utils import get
 from dotenv import load_dotenv
 
-pp = ["8=D,8==D,8===D,8====D,8=====D,8======D"]
+pp = ["8=D","8==D","8===D","8====D","8=====D","8======D"]
 
 bot = commands.Bot(command_prefix = "%", case_insensitive=True)
 bot.requests = httpx.AsyncClient()
