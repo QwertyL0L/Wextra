@@ -13,6 +13,8 @@ from random import choice, randint
 from discord.utils import get
 from dotenv import load_dotenv
 
+pp = ["8=D,8==D,8===D,8====D,8=====D,8======D"]
+
 bot = commands.Bot(command_prefix = "%", case_insensitive=True)
 bot.requests = httpx.AsyncClient()
 blacklist = ""
@@ -451,6 +453,23 @@ async def nuke(ctx, user: discord.Member):
    await asyncio.sleep(3)
    await message.edit(content=f"my grandma could've out ran that nuke and shes dead 💀💀💀💀 {user.mention}")
    await asyncio.sleep(3)
+
+    
+@bot.command()
+async def IQ(ctx, user: discord.Member):
+  await ctx.send(f"{user.mention} has {random.randrange(101)} IQ")
+
+@bot.command()
+async def coolrate(ctx, user: discord.Member):
+  await ctx.send(f"{user.mention} is {random.randrange(101)} cool")
+
+@bot.command()
+async def dumbrate(ctx, user: discord.Member):
+  await ctx.send(f"{user.mention} is {random.randrange(101)} dumb")
+
+@bot.command()
+async def pprate(ctx, user: discord.Member):
+  await ctx.send(f"{user.mention} pp size {random.choice(pp)}")
 
 
 bot.run(os.getenv("DISCORD_TOKEN"))
