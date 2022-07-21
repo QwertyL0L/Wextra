@@ -14,6 +14,8 @@ from discord.utils import get
 from dotenv import load_dotenv
 
 pp = ["**8=D**","**8==D**","**8===D**","**8====D**","**8=====D**","**8======D**"]
+ben = ["Yes?","No","Ugh","NaNaNa","HoHoHo","Ben?"]
+bella = ["Yes?","No","Bruh","NaNaNa","Hehehe","Bella?"]
 
 bot = commands.Bot(command_prefix = "%", case_insensitive=True)
 bot.requests = httpx.AsyncClient()
@@ -94,14 +96,13 @@ async def imgay(ctx):
 
 
 @bot.command()
-async def ben2(ctx):
-    await ctx.send("bendover 😩")
+async def bella(ctx):
+    await ctx.send(f"{random.choice(bella)}")
 
 @bot.command()
-async def ben1(ctx):
-    embed = discord.Embed(title="what", description="Yes?", colour=discord.Color.blue())
+async def ben(ctx):
+    await ctx.send(f"{random.choice(ben)}")
 
-    await ctx.send(embed=embed)
 
 @bot.command()
 async def ratio(ctx):
