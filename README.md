@@ -12,4 +12,4 @@ feel free to fork but make sure to give credit
 
 ## replit: https://replit.com/@QwertyL0L/Wextra#main.py
 
-if you have any questions then feel free to contact me through discord: JackTheNoob#3403
+if you have any questions then feel free to contact me through discord: Jack?#3403 (alt is Swag#8892)
