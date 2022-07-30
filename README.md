@@ -8,8 +8,8 @@ if you're running on replit then make sure to make a new secret and name the key
 
 then click run and the bot should be running
 
-feel free to fork but make sure to give credit
+feel free to fork but make sure to credit me
 
-## replit: https://replit.com/@QwertyL0L/Wextra#main.py
+## Replit Link: https://replit.com/@QwertyL0L/Wextra#main.py
 
 if you have any questions then feel free to contact me through discord: Jack?#3403 (alt is Swag#8892)
