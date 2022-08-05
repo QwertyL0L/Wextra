@@ -614,4 +614,19 @@ async def flashingconsole(ctx: interactions.CommandContext, text: str):
    await message.edit(content=f"{text}")
    await asyncio.sleep(1.7)  
 
+@bot.command(
+    name="echo",
+    description="Make me say whatever u want stuff",
+			    options = [
+        interactions.Option(
+            name="text",
+            description="What u want to me to say",
+            type=interactions.OptionType.STRING,
+            required=True,
+        ),
+    ],
+)
+async def echo(ctx: interactions.CommandContext, text: str):
+	await ctx.send(f"Your message was: {text}")
+
 bot.start()
