@@ -629,4 +629,28 @@ async def flashingconsole(ctx: interactions.CommandContext, text: str):
 async def echo(ctx: interactions.CommandContext, text: str):
 	await ctx.send(f"Your message was: {text}")
 
+import sys
+
+def restart_bot(): 
+  os.execv(sys.executable, ['python'] + sys.argv)
+
+@bot.command(
+    name="restart",
+    description='restarts the bot (ADMIN ONLY)'
+)
+async def restart(ctx):
+    id = str(ctx.author.id)
+    if id == '898358037239201812': # YOUR DISCORD ID HERE
+        await ctx.send('Restarting...')
+        restart_bot()
+    else:
+        await ctx.send("You dont have sufficient permmisions to perform this action!")
+
+@bot.command(
+    name="created",
+    description='shows when the bot was created'
+)
+async def created(ctx: interactions.CommandContext):
+        await ctx.send("I have existed since **July 30th 2022!**")
+
 bot.start()
