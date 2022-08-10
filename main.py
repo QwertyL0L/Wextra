@@ -12,7 +12,6 @@ from discord.raw_models import RawMessageUpdateEvent
 from random import choice, randint
 from discord.utils import get
 from dotenv import load_dotenv
-import requests
 import sys
 
 pp = ["**8=D**","**8==D**","**8===D**","**8====D**","**8=====D**","**8======D**"]
