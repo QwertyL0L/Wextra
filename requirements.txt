@@ -3,4 +3,4 @@ asyncio
 httpx
 python-dotenv
 requests
-interactions
+interactions==4.3.1
