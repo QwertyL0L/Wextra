@@ -17,7 +17,8 @@ from dotenv import load_dotenv
 pp = ["**8=D**","**8==D**","**8===D**","**8====D**","**8=====D**","**8======D**"]
 ben = ["Yes?","No","Ugh","NaNaNa","HoHoHo","Ben?"]
 bella = ["Yes?","No","Bruh","NaNaNa","*laughs*","Bella?"]
-killmessages = [" died.", " died from cringe."," saw floppa r34", " posted memes in #general", " took the L.", " got rickrolled by a free bobux link.", " got cancelled on Twitter."," got ratio'd on Twitter."," got caught in 4K"," ragequitted."," went to Brazil.", " got ratio'd"," got [ Content Deleted ]", " died because yes.", " got yeeted."," got permbanned.", " said the n-word."," choked to death on a fortune cookie"," said deez nuts in 2022💀"," went on a date with a catfishing 69 year old man."," said 'amogus' in 2022 💀"," got rejected by their crush."," found out what poison was."," choked on their spit."," hugged a bee hive"," stuck his pp in a electrical socket"," had explosive diarrhea after eating taco bell."," dabbed in 2022."," bought Stitch Face"] #stolen from nickbot with added stuff
+killmessages = [" died.", " died from cringe."," saw floppa r34", " posted memes in #general", " took the L.", " got rickrolled by a free bobux link.", " got cancelled on Twitter."," got ratio'd on Twitter."," got caught in 4K"," ragequitted."," went to Brazil.", " got ratio'd"," got [Content Deleted]", " died because yes.", " got yeeted."," got permbanned.", " posted cringe 💀"," choked to death on a fortune cookie"," said deez nuts in 2022 💀"," went on a date with a catfishing 69 year old man."," said 'amogus' in 2022 💀"," got rejected by their crush."," found out what poison was."," choked on their spit."," hugged a bee hive"," stuck his pp in a electrical socket"," had explosive diarrhea after eating taco bell."," dabbed in 2022."," bought Stitch Face"," said amogus is still funny"," forgot how to breath 💀"," became emo"," became a TikToker"," became a dream stan"]
+
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
@@ -87,34 +88,19 @@ async def imgay(ctx: interactions.CommandContext):
     await ctx.send("ok?")
 
 @bot.command(
-    name="bella",
-    description="Ask bella a question",
+    name="gayrate",
+    description="gay rate someone",
     options = [
         interactions.Option(
-            name="text",
-            description="What you want to ask bella",
-            type=interactions.OptionType.STRING,
+            name="user",
+            description="who u want to rate",
+            type=interactions.OptionType.USER,
             required=True,
         ),
     ],
 )
-async def bella(ctx: interactions.CommandContext, text: str):
- await ctx.send(f"{random.choice(bella)}")
-
-@bot.command(
-    name="ben",
-    description="Ask ben a question",
-    options = [
-        interactions.Option(
-            name="text",
-            description="What you want to ask Ben",
-            type=interactions.OptionType.STRING,
-            required=True,
-        ),
-    ],
-)
-async def ben(ctx: interactions.CommandContext, text: str):
-    await ctx.send(f"{random.choice(ben)}")
+async def gayrate(ctx: interactions.CommandContext, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% gay")
 
 @bot.command(
     name="ratio",
@@ -137,7 +123,7 @@ discord.Member):
     description="caleb city meme"
 )
 async def earsburn(ctx: interactions.CommandContext):
-    await ctx.send("https://youtu.be/fujCdB93fpw")
+    await ctx.send("https://www.youtube.com/Zc0IVGLMskM")
 
 
 @bot.command(
@@ -159,7 +145,7 @@ async def stfu(ctx: interactions.CommandContext):
     description="Invite The Bot"
 )
 async def invite(ctx: interactions.CommandContext):
-    await ctx.send("https://discord.com/api/oauth2/authorize?client_id=898570522261065748&permissions=2214841350&scope=bot%20applications.commands")
+    await ctx.send("https://discord.com/api/oauth2/authorize?client_id=1003004911115587624&permissions=2251549703&scope=applications.commands%20bot")
 
 
 @bot.command(
@@ -182,7 +168,7 @@ async def amogus(ctx: interactions.CommandContext):
         ),
     ],
 )
-async def whois(ctx: interactions.CommandContext, member : discord.Member):
+async def whois(ctx: interactions.CommandContext, member: discord.Member):
   if member == None:
     member = ctx.author
   whoisembed=discord.Embed(title=f"Userinfo of {member.name}" , description= member.mention , color= discord.Color.blue())
@@ -233,14 +219,18 @@ async def eightball(ctx: interactions.CommandContext, text: str):
     name="server",
     description="Get info about the Server"
 )
-async def server(ctx: interactions.CommandContext):
-    name = str(ctx.guild.name)
-    description = str(ctx.guild.description)
-    owner = str(ctx.guild.owner)
-    id = str(ctx.guild.id)
-    memberCount = str(ctx.guild.member_count)
+async def server(ctx):
+    embed = discord.Embed(title=f"{ctx.guild.name} Info", description="Information of this Server", color=discord.Colour.blue())
+    embed.add_field(name='🆔Server ID', value=f"{ctx.guild.id}", inline=True)
+    embed.add_field(name='📆Created On', value=ctx.guild.created_at.strftime("%b %d %Y"), inline=True)
+    embed.add_field(name='👑Owner', value=f"{ctx.guild.owner.mention}", inline=True)
+    embed.add_field(name='👥Members', value=f'{ctx.guild.member_count} Members', inline=True)
+    embed.add_field(name='💬Channels', value=f'{len(ctx.guild.text_channels)} Text | {len(ctx.guild.voice_channels)} Voice', inline=True)
+    embed.add_field(name='🌎Region', value=f'{ctx.guild.region}', inline=True)
+    embed.set_thumbnail(url=ctx.guild.icon_url) 
+    embed.set_footer(text="⭐ • Duo")    
 
-    await ctx.send(f"Name of this Server is **{name}**, Server Description is**{description}**, Server Owner **{owner}**, Server ID **{id}** and the Member Count is **{memberCount}**")
+    await ctx.send(embed=embed)
 
 
 @bot.command(
@@ -594,29 +584,29 @@ async def kill(ctx, user: discord.Member):
 )
 async def flashingconsole(ctx: interactions.CommandContext, text: str):
    message = await ctx.send(f"{text}")
-   await message.edit(content=f"⬞")
+   await message.edit(content=f"⠀⠀⠀")
    await asyncio.sleep(1.7)
    await message.edit(content=f"{text}")
    await asyncio.sleep(1.7)
-   await message.edit(content=f"⬞")
+   await message.edit(content=f"⠀⠀⠀")
    await asyncio.sleep(1.7)
    await message.edit(content=f"{text}")
    await asyncio.sleep(1.7)
-   await message.edit(content=f"⬞")
+   await message.edit(content=f"⠀⠀⠀")
    await asyncio.sleep(1.7)
    await message.edit(content=f"{text}")
    await asyncio.sleep(1.7)
-   await message.edit(content=f"⬞")
+   await message.edit(content=f"⠀⠀⠀")
    await asyncio.sleep(1.7)
    await message.edit(content=f"{text}")
    await asyncio.sleep(1.7)
-   await message.edit(content=f"⬞")
+   await message.edit(content=f"⠀⠀⠀")
    await message.edit(content=f"{text}")
    await asyncio.sleep(1.7)  
 
 @bot.command(
     name="echo",
-    description="Make me say whatever u want stuff",
+    description="Make me say whatever u want ",
 			    options = [
         interactions.Option(
             name="text",
@@ -627,7 +617,7 @@ async def flashingconsole(ctx: interactions.CommandContext, text: str):
     ],
 )
 async def echo(ctx: interactions.CommandContext, text: str):
-	await ctx.send(f"Your message was: {text}")
+	await ctx.send(f"**{text}**")
 
 import sys
 
@@ -651,6 +641,49 @@ async def restart(ctx):
     description='shows when the bot was created'
 )
 async def created(ctx: interactions.CommandContext):
-        await ctx.send("I have existed since **July 30th 2022!**")
+        await ctx.send("This Version Of The Bot Has Existed Since **July 30th 2022**")
+
+import requests
+
+@bot.command(
+    name="quote",
+    description='get a quote',
+)
+async def quote(ctx):
+    response = requests.get("https://zenquotes.io/api/random")
+    json_data = json.loads(response.text)
+    quote_ = json_data[0]['q'] + " ~ " + json_data[0]['a']
+    await ctx.send(quote_)
+
+@bot.command(
+    name="retardrate",
+    description="retard rate someone",
+    options = [
+        interactions.Option(
+            name="user",
+            description="who u want to rate",
+            type=interactions.OptionType.USER,
+            required=True,
+        ),
+    ],
+)
+async def retardrate(ctx: interactions.CommandContext, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% a retard")
+
+@bot.command(
+    name="cringerate",
+    description="cringe rate someone",
+    options = [
+        interactions.Option(
+            name="user",
+            description="who u want to rate",
+            type=interactions.OptionType.USER,
+            required=True,
+        ),
+    ],
+)
+async def cringerate(ctx: interactions.CommandContext, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% cringe")
+
 
 bot.start()
