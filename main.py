@@ -12,10 +12,14 @@ from discord.raw_models import RawMessageUpdateEvent
 from random import choice, randint
 from discord.utils import get
 from dotenv import load_dotenv
+import requests
+import sys
 
 pp = ["**8=D**","**8==D**","**8===D**","**8====D**","**8=====D**","**8======D**"]
 ben = ["Yes?","No","Ugh","NaNaNa","HoHoHo","Ben?"]
 bella = ["Yes?","No","Bruh","NaNaNa","Hehehe","Bella?"]
+killmessages = [" died.", " died from cringe."," saw floppa r34", " posted memes in #general", " took the L.", " got rickrolled by a free bobux link.", " got cancelled on Twitter."," got ratio'd on Twitter."," got caught in 4K"," ragequitted."," went to Brazil.", " got ratio'd"," got [Content Deleted]", " died because yes.", " got yeeted."," got permbanned.", " posted cringe 💀"," choked to death on a fortune cookie"," said deez nuts in 2022 💀"," went on a date with a catfishing 69 year old man."," said 'amogus' in 2022 💀"," got rejected by their crush."," found out what poison was."," choked on their spit."," hugged a bee hive"," stuck his pp in a electrical socket"," had explosive diarrhea after eating taco bell."," dabbed in 2022."," bought Stitch Face"," said amogus is still funny"," forgot how to breath 💀"," became emo"," became a TikToker"," became a dream stan"]
+hellolist = ["Wsg ","Yo ","Hi ","Hello ","Greeting ","Hola "]
 
 bot = commands.Bot(command_prefix = "%", case_insensitive=True)
 bot.requests = httpx.AsyncClient()
@@ -38,105 +42,76 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 @bot.command()
-async def UL(ctx):
-    embed = discord.Embed(title="UpdateLogs", description="updates coming soon", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed) 
-
-
-@bot.command()
 async def hello(ctx):
-    embed = discord.Embed(title="Yo!", description="wsg", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed) 
+	await ctx.send(f"{random.choice(hellolist)} {ctx.author.mention}!")
 
 @bot.command()
 async def uwu(ctx):
-    embed = discord.Embed(title="stfu", description="please just stfu u fucking furry", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed) 
-
+	await ctx.send ("please just stfu u fucking furry")
 
 @bot.command()
 async def die(ctx):
-    embed = discord.Embed(title="im good thx", description="make me oh right u cant cuz im a fucking bot dumbass", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed) 
+	await ctx.send("make me oh right u cant cuz im a fucking bot dumbass")
 
 @bot.command()
 async def imfat(ctx):
-    embed = discord.Embed(title="no shit", description="L BOZO", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed) 
+	await ctx.send("L BOZO")
   
 @bot.command()
 async def ampro(ctx):
-    embed = discord.Embed(title="nah fam", description="i smell cap", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed) 
+	await ctx.send("i smell cap")
 
 @bot.command()
 async def deez(ctx):
-    embed = discord.Embed(title="u already knew where this was going", description="deez nuts in yo mouth", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed)
+	await ctx.send("deez nuts in yo mouth")
 
 
 @bot.command()
 async def candice(ctx):
-    embed = discord.Embed(title="bruh just stop ok?", description="candice dick fit in yo mouth", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed)
+	await ctx.send("candice dick fit in yo mouth")
 
 @bot.command()
 async def imgay(ctx):
-    embed = discord.Embed(title="uh ok?", description="ok cool i didnt ask tho", colour=discord.Color.blue())
+	await ctx.send("ok?")
 
-    await ctx.send(embed=embed)
+@bot.command()
+async def gayrate(ctx, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% gay")
 
 
 @bot.command()
-async def bella(ctx):
-    await ctx.send(f"{random.choice(bella)}")
+async def bella(ctx, text: str):
+    await ctx.send(f"My Answer To **{text}** was **{random.choice(bella)}**")
 
 @bot.command()
-async def ben(ctx):
-    await ctx.send(f"{random.choice(ben)}")
+async def ben(ctx, text: str):
+    await ctx.send(f"My Answer To **{text}** was **{random.choice(ben)}**")
 
 
 @bot.command()
-async def ratio(ctx):
-    embed = discord.Embed(title="cool but...", description="L + don’t care + didn’t ask + cry about it + who asked + stay mad + get real + bleed + mald seethe cope harder + dilate + incorrect + hoes mad + pound sand + basic skill issue + typo + ur dad left + you fell off + no u + the audacity + triggered + repelled + ur a minor + k. + any askers + get a life + ok and? + cringe + copium + go outside + touch grass + kick rocks + quote tweet + think again + not based + not funny didn’t laugh + social credits -999, 999, 999, 999 + get good + reported + ad hominem + ok boomer + small pp + ur allergic to sunlight + GG! + get rekt + trolled + your loss + muted + banned + kicked + permaban + useless + i slept with ur mom + yo momma + yo momma so fat + redpilled + no bitches allowed + i said it better + tiktok fan + get a life + unsubscribed + plundered + go tell reddit + donowalled + simp + get sticked bug LOL + talk nonsense + trump supporter + your’re a full time discord mod + you’re* + grammar issue + nerd + get clapped + kys + lorem ipsum dolor sit amet + go outside + bleach + lol + gay + retard + autistic + reported + ask deez + ez clap + straight cash + idgaf + ratio again + stay mad + read FAQ + youre lost + you “re” + stay pressed + reverse double take back + pedophile + cancelled + done for + don't give a damn + get a job + sus + baka + sussy baka + get blocked + mad free + freer than air + furry + rip bozo + you're a (insert stereotype) + slight_smile + aired + cringe again + Super Idol的笑容 + mad cuz bad + my pronouns are xe, xem & xyr + irrelevant + deal with it + screencapped your bio + karen/kyle + jealous + you're deaf + balls + i'll be right back + go ahead whine about it + not straight + eat paper + you lose + count to three + your problem + no one cares + log off + don't care even more + sex offender + sex defender + get religion + not okay + glhf + NFT owner + you make bad memes + problematic + fall in line + dog water + you look like a wall + you don’t know 2 + 2 with yo head ass + you are going to my cringe compilation + you can’t count to five + try again + you failed kindergarten + rickrolled + no lifer + guten freunden schickt man einen deutschen panzer + you have a anime profile picture + an* + fatherless + motherless + sisterless + brotherless + orphan + you can't catch this ratio + catch some bitches + I don't care about your opinion + genshin player + you dress like garbage + 日本語がお上手ですね + get fucked + you can’t understand what the word intelligence means with your dumb ass + you have hair + queued + put some thought into what you're going to do with that + stfu + go to bed + yes, i'm taller than you + i think your joke is funny + i rejected your mother's advances + marooned + you can’t read + I win + final ratio", colour=discord.Color.blue())
+async def ratio(ctx, user: discord.Member):
+    await ctx.send(f"{user.mention} L + don’t care + didn’t ask + cry about it + who asked + stay mad + get real + mald, seethe, cope harder + incorrect + hoes mad + pound sand + basic skill issue + typo + ur dad left + you fell off + no u + the audacity + triggered + repelled + get a life + ok and? + cringe + go outside + touch grass + kick rocks + think again + not based + not funny didn’t laugh + get good + reported + small pp + ur allergic to sunlight + GG! + get rekt + trolled + your loss + muted + banned + kicked + permaban + useless + i slept with ur mom + redpilled + i said it better + tiktok fan + get a life + unsubscribed + plundered + go tell reddit + talk nonsense + you're a full time discord mod + you’re* + grammar issue + nerd + get clapped + go outside + bleach + lol + gay + retard + autistic + reported + ask deez + ez clap + straight cash + idgaf + stay mad + youre lost + you “re” + stay pressed + reverse double take back + pedophile + cancelled + don't give a damn + get a job + dumb kid + sussy baka + get blocked + mad free + freer than air + furry + rip bozo + you're a (insert stereotype) + slight_smile + aired + cringe again + mad cuz bad + my pronouns are xe, xem & xyr + irrelevant + deal with it + screencapped your bio + karen/kyle + jealous + you're deaf + balls + i'll be right back + go ahead whine about it + eat paper + you lose + your problem + no one cares + log off + don't care even more + sex offender + sex defender + get religion + NFT owner + you make bad memes + problematic + fall in line + dog water + you are going to my cringe comp + you failed kindergarten + you have a anime profile picture + an* + fatherless + motherless + sisterless + brotherless + orphan + catch some bitches + I don't care about your opinion + genshin player + you dress like garbage + 日 amogus + get fucked + queued + put some thought into what you're going to do with that + stfu + go to bed + yes, i'm taller than you + I win BOZO")
 
-    await ctx.send(embed=embed)
 
 @bot.command()
 async def earsburn(ctx):
-    embed = discord.Embed(title="lol", url="https://youtu.be/fujCdB93fpw",description="click the link to see a funny meme! (memes provided by youtube and memefeedbot)", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed)
+	await ctx.send("https://youtu.be/fujCdB93fpw")
 
 @bot.command()
 async def never(ctx):
-    embed = discord.Embed(title="dont click me",url="https://youtu.be/fujCdB93fpw", description="dont click the link or else", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed)
+    await ctx.send("https://youtu.be/fujCdB93fpw")
 
 @bot.command()
 async def stfu1(ctx):
-    embed = discord.Embed(title="click  me to see the meme",url="https://cdn.discordapp.com/attachments/841451660059869194/958183891536056380/MemeFeedBot.mov", description="click the link to see a funny meme! (memes provided by memefeedbot)", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed)
+	await ctx.send("https://cdn.discordapp.com/attachments/841451660059869194/958183891536056380/MemeFeedBot.mov")
 
 @bot.command()
 async def invite(ctx):
-    embed = discord.Embed(title="click me to invite the bot!",url="https://discord.com/oauth2/authorize?client_id=%20898570522261065748&permissions=8&scope=bot", description="click the link to invite the bot!", colour=discord.Color.blue())
-
-    await ctx.send(embed=embed)
+	await ctx.send("https://discord.com/oauth2/authorize?client_id=898570522261065748&permissions=8&scope=bot")
 
 @bot.command()
 async def amogus(ctx):
-    await ctx.send("cringy ass")
+    await ctx.send("cringy ass mf 💀💀💀")
 
 
 @bot.command()
@@ -281,19 +256,10 @@ async def whois(ctx, member : discord.Member):
   whoisembed.add_field(name = "User id" , value = member.id , inline=True )
   whoisembed.add_field(name= "Nickname" , value= member.nick, inline=True)
   whoisembed.add_field(name= "Created Date" , value= member.created_at, inline=True)
-  whoisembed.set_footer(text = "Generated By 0w0" , icon_url = 'https://media.discordapp.net/attachments/862890805131345930/991468541503086632/image0.jpg?width=810&height=810')
+  whoisembed.set_footer(text = "Generated By Wextra" , icon_url = 'https://media.discordapp.net/attachments/862890805131345930/991468541503086632/image0.jpg?width=810&height=810')
   await ctx.send(embed=whoisembed)
 
-@bot.command(name='8ball',
-
-            description="Answers a yes/no question.",
-
-            brief="Answers from the beyond.",
-
-            aliases=['eight_ball', 'eightball', '8-ball'],
-
-            pass_context=True)
-
+@bot.command()
 async def eight_ball(context):
 
     possible_responses = [
@@ -312,34 +278,26 @@ async def eight_ball(context):
     ]
     await context.channel.send(random.choice(possible_responses) + ", " + context.message.author.mention)
 
+@bot.command()
+async def uwontbelievewhathappens(ctx):
+    await ctx.send("https://youtu.be/fujCdB93fpw")
 
 @bot.command()
 async def server(ctx):
-    name = str(ctx.guild.name)
-    description = str(ctx.guild.description)
-
-    owner = str(ctx.guild.owner)
-    id = str(ctx.guild.id)
-    region = str(ctx.guild.region)
-    memberCount = str(ctx.guild.member_count)
-
-    icon = str(ctx.guild.icon_url)
-
-    embed = discord.Embed(
-        title=name + "Server Info",
-        description=description,
-        color=discord.Color.blue()
-    )
-    embed.set_thumbnail(url=icon)
-    embed.add_field(name="Owner", value=owner, inline=True)
-    embed.add_field(name="Server ID", value=id, inline=True)
-    embed.add_field(name="Region", value=region, inline=True)
-    embed.add_field(name="Member Count", value=memberCount, inline=True)
+    embed = discord.Embed(title=f"{ctx.guild.name} Info", description="Information of this Server", color=discord.Colour.blue())
+    embed.add_field(name='🆔Server ID', value=f"{ctx.guild.id}", inline=True)
+    embed.add_field(name='📆Created On', value=ctx.guild.created_at.strftime("%b %d %Y"), inline=True)
+    embed.add_field(name='👑Owner', value=f"{ctx.guild.owner.mention}", inline=True)
+    embed.add_field(name='👥Members', value=f'{ctx.guild.member_count} Members', inline=True)
+    embed.add_field(name='💬Channels', value=f'{len(ctx.guild.text_channels)} Text | {len(ctx.guild.voice_channels)} Voice', inline=True)
+    embed.add_field(name='🌎Region', value=f'{ctx.guild.region}', inline=True)
+    embed.set_thumbnail(url=ctx.guild.icon_url) 
+    embed.set_footer(text="⭐ • Duo")    
 
     await ctx.send(embed=embed)
 
-@bot.command(name="summon")  # troll command
-async def p(ctx):
+@bot.command()  # troll command
+async def summon(ctx):
     await ctx.send(f"Fuck off {ctx.message.author.mention}! Im sleeping, Bitch!")
     
 @bot.command()
@@ -471,6 +429,144 @@ async def dumbrate(ctx, user: discord.Member):
 @bot.command()
 async def pprate(ctx, user: discord.Member):
   await ctx.send(f"{user.mention} pp size {random.choice(pp)}")
+
+@bot.command()
+async def retardrate(ctx, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% a retard")
+
+async def cringerate(ctx, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% cringe")
+
+@bot.command()
+async def quote(ctx):
+    response = requests.get("https://zenquotes.io/api/random")
+    json_data = json.loads(response.text)
+    quote_ = json_data[0]['q'] + " ~ " + json_data[0]['a']
+    await ctx.send(quote_)
+
+def restart_bot(): 
+  os.execv(sys.executable, ['python'] + sys.argv)
+
+@bot.command()
+async def restart(ctx):
+    id = str(ctx.author.id)
+    if id == '898358037239201812': # YOUR DISCORD ID HERE
+        await ctx.send('Restarting...')
+        restart_bot()
+    else:
+        await ctx.send("You dont have sufficient permmisions to perform this action!")
+
+@bot.command()
+async def echo(ctx, text: str):
+	await ctx.send(f"**{text}**")
+
+@bot.command()
+async def flashingconsole(ctx, text: str):
+   message = await ctx.send(f"{text}")
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)  
+
+@bot.command()
+async def kill(ctx, user: discord.Member):
+ await ctx.send(user.mention + random.choice(killmessages))
+
+@bot.command()
+async def furryrate(ctx, user: discord.Member):
+  await ctx.send(f"{user.mention} is {random.randrange(101)}% a furry")
+
+async def customcat(ctx, text: str):
+   message = await ctx.send("A package has Arrived!")
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(2.0)
+
+@bot.command()
+async def bitchesrate(ctx, user: discord.Member):
+  await ctx.send(f"{user.mention} is {random.randrange(101)}% bitchless")
 
 
 bot.run(os.getenv("DISCORD_TOKEN"))
