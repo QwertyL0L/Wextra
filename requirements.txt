@@ -3,3 +3,4 @@ asyncio
 httpx
 discord.ext
 python-dotenv
+interactions.py
