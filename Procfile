@@ -1,1 +1,1 @@
-worker python slash.py
+worker python main.py
