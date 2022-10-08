@@ -1,24 +1,28 @@
+import discord
 from discord.ext import commands, tasks
 from asyncio import sleep
 import random
-import discord
-import interactions.py
+import interactions
 import datetime
 import asyncio
 import os
 import httpx
-import json
-from discord.ext.commands.core import guild_only
-from discord.raw_models import RawMessageUpdateEvent
 from random import choice, randint
 from discord.utils import get
 from dotenv import load_dotenv
+import requests
+from requests import get
+from random import randint
+from interactions import Button, ButtonStyle
+import json
+import sys
+
+shit = []
 
 pp = ["**8=D**","**8==D**","**8===D**","**8====D**","**8=====D**","**8======D**"]
 ben = ["Yes?","No","Ugh","NaNaNa","HoHoHo","Ben?"]
 bella = ["Yes?","No","Bruh","NaNaNa","*laughs*","Bella?"]
-killmessages = [" died.", " died from cringe."," saw floppa r34", " posted memes in #general", " took the L.", " got rickrolled by a free bobux link.", " got cancelled on Twitter."," got ratio'd on Twitter."," got caught in 4K"," ragequitted."," went to Brazil.", " got ratio'd"," got [Content Deleted]", " died because yes.", " got yeeted."," got permbanned.", " posted cringe 💀"," choked to death on a fortune cookie"," said deez nuts in 2022 💀"," went on a date with a catfishing 69 year old man."," said 'amogus' in 2022 💀"," got rejected by their crush."," found out what poison was."," choked on their spit."," hugged a bee hive"," stuck his pp in a electrical socket"," had explosive diarrhea after eating taco bell."," dabbed in 2022."," bought Stitch Face"," said amogus is still funny"," forgot how to breath 💀"," became emo"," became a TikToker"," became a dream stan"]
-
+killmessages = [" died.", " died from cringe."," saw floppa r34", " posted memes in #general", " took the L.", " got rickrolled by a free bobux link.", " got cancelled on Twitter."," got ratio'd on Twitter."," got caught in 4K"," ragequitted."," went to Brazil.", " got ratio'd"," got [Content Deleted]", " died because yes.", " got yeeted."," got permbanned.", " posted cringe 💀"," choked to death on a fortune cookie"," said deez nuts in 2022 💀"," went on a date with a 69 year old man."," said 'amogus' in 2022 💀"," got rejected by their crush."," found out what poison was."," choked on their spit."," hugged a bee hive"," stuck his pp in a electrical socket"," had explosive diarrhea after eating taco bell."," dabbed in 2022."," bought Stitch Face"," said amogus is still funny"," forgot how to breath 💀"," became emo"," became a TikToker"," became a dream stan"]
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
@@ -36,11 +40,26 @@ def admin_list():
 
 @bot.event
 async def on_ready():
-    print(f'Bot Online!!!')
+    print("Bot Online!!!")
+    with open("funny2.txt", "r") as f:
+        file_lines1 = f.readlines()
+    for line1 in file_lines1:
+        shit.append(str(line1.strip()))
+    print(f"{len(shit)} listed users!")
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    if message.author.bot: return
+    else:
+        if str(message.author.id) in shit:
+            await message.delete()
+            await message.channel.send(message.author.mention + "<:troll:988139019869241444>")
 
 @bot.command(
     name="hello",
-    description="A friendly hello from Wextra"
+    description="A friendly hello from the bot"
 )
 async def hello(ctx: interactions.CommandContext):
     await ctx.send(f"Hi {ctx.author.mention}!")
@@ -61,21 +80,21 @@ async def die(ctx: interactions.CommandContext):
 
 @bot.command(
     name="imfat",
-    description="Tell Wextra ur fat",
+    description="Tell the bot ur fat",
 )
 async def imfat(ctx: interactions.CommandContext):
     await ctx.send("haha L bozo")
 
 @bot.command(
     name="ampro",
-    description="Tell Wextra that you're (totally) pro"
+    description="Tell the bot that you're (totally) pro"
 )
 async def ampro(ctx: interactions.CommandContext):
     await ctx.send("🧢")
 
 @bot.command(
     name="deez",
-    description="Tell Wextra a (totally) funi joke"
+    description="Tell the bot a (totally) funi joke"
 )
 async def deez(ctx: interactions.CommandContext):
     await ctx.send("deez nuts in yo mouth (bro istg u got the whole squad laughing)")
@@ -220,22 +239,22 @@ async def eightball(ctx: interactions.CommandContext, text: str):
     description="Get info about the Server"
 )
 async def server(ctx):
-    embed = discord.Embed(title=f"{ctx.guild.name} Info", description="Information of this Server", color=discord.Colour.blue())
-    embed.add_field(name='🆔Server ID', value=f"{ctx.guild.id}", inline=True)
-    embed.add_field(name='📆Created On', value=ctx.guild.created_at.strftime("%b %d %Y"), inline=True)
-    embed.add_field(name='👑Owner', value=f"{ctx.guild.owner.mention}", inline=True)
-    embed.add_field(name='👥Members', value=f'{ctx.guild.member_count} Members', inline=True)
-    embed.add_field(name='💬Channels', value=f'{len(ctx.guild.text_channels)} Text | {len(ctx.guild.voice_channels)} Voice', inline=True)
-    embed.add_field(name='🌎Region', value=f'{ctx.guild.region}', inline=True)
-    embed.set_thumbnail(url=ctx.guild.icon_url) 
-    embed.set_footer(text="⭐ • Duo")    
+    sembed = discord.Embed(title=f"{ctx.guild.name} Info", description="Information of this Server", color=discord.Colour.blue())
+    sembed.add_field(name='🆔Server ID', value=f"{ctx.guild.id}", inline=True)
+    sembed.add_field(name='📆Created On', value=ctx.guild.created_at.strftime("%b %d %Y"), inline=True)
+    sembed.add_field(name='👑Owner', value=f"{ctx.guild.owner.mention}", inline=True)
+    sembed.add_field(name='👥Members', value=f'{ctx.guild.member_count} Members', inline=True)
+    sembed.add_field(name='💬Channels', value=f'{len(ctx.guild.text_channels)} Text | {len(ctx.guild.voice_channels)} Voice', inline=True)
+    sembed.add_field(name='🌎Region', value=f'{ctx.guild.region}', inline=True)
+    sembed.set_thumbnail(url=ctx.guild.icon_url) 
+    sembed.set_footer(text="⭐ • Duo")    
 
-    await ctx.send(embed=embed)
+    await ctx.send(embed=sembed)
 
 
 @bot.command(
     name="summon",
-    description="Summon Wextra"
+    description="Summon the Bot"
 )
 async def summon(ctx: interactions.CommandContext):
     await ctx.send(f"Fuck off {ctx.author.mention}! Im sleeping, Bitch!")
@@ -541,7 +560,7 @@ async def customcat(ctx: interactions.CommandContext, text: str):
 
 @bot.command(
     name="furryrate",
-    description="see if someone is a furry ot not",
+    description="see if someone is a furry or not",
 		    options = [
         interactions.Option(
             name="user",
@@ -619,8 +638,6 @@ async def flashingconsole(ctx: interactions.CommandContext, text: str):
 async def echo(ctx: interactions.CommandContext, text: str):
 	await ctx.send(f"**{text}**")
 
-import sys
-
 def restart_bot(): 
   os.execv(sys.executable, ['python'] + sys.argv)
 
@@ -630,7 +647,7 @@ def restart_bot():
 )
 async def restart(ctx):
     id = str(ctx.author.id)
-    if id == '898358037239201812': # YOUR DISCORD ID HERE
+    if id == '898358037239201812':
         await ctx.send('Restarting...')
         restart_bot()
     else:
@@ -642,8 +659,6 @@ async def restart(ctx):
 )
 async def created(ctx: interactions.CommandContext):
         await ctx.send("This Version Of The Bot Has Existed Since **July 30th 2022**")
-
-import requests
 
 @bot.command(
     name="quote",
@@ -685,5 +700,20 @@ async def retardrate(ctx: interactions.CommandContext, user: discord.Member):
 async def cringerate(ctx: interactions.CommandContext, user: discord.Member):
  await ctx.send(f"{user.mention} is {random.randrange(101)}% cringe")
 
+@bot.command(
+    name="reverse",
+    description='reverse any text',
+			options = [
+        interactions.Option(
+            name="text",
+            description="what u want to reverse",
+            type=interactions.OptionType.STRING,
+            required=True,
+        ),
+    ],
+)
+async def reverse(ctx, *, text: str):
+        t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
+        await ctx.send(f"🔁 {t_rev}")
 
 bot.start()
