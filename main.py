@@ -567,5 +567,152 @@ async def customcat(ctx, text: str):
 async def bitchesrate(ctx, user: discord.Member):
   await ctx.send(f"{user.mention} is {random.randrange(101)}% bitchless")
 
+@bot.command()
+async def customcat(ctx: interactions.CommandContext, text: str):
+   message = await ctx.send("A package has Arrived!")
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""
+ຸ 　　　＿＿_＿＿
+    　／　／　  ／|"
+    　|￣￣￣￣|　|
+    　|　　　　|／
+    　￣￣￣￣""")
+   await asyncio.sleep(2.0)
+   await message.edit(content=f"""{text}
+    　   　∧＿∧＿_
+    　／(´･ω･`)  ／＼
+    ／|￣￣￣￣|＼／
+    　|　　　　|／
+    　￣￣￣￣""")		
+   await asyncio.sleep(2.0)
+
+@bot.command()
+async def furryrate(ctx: interactions.CommandContext, user: discord.Member):
+  await ctx.send(f"{user.mention} is {random.randrange(101)}% a furry")
+
+
+@bot.command()
+async def kill(ctx, user: discord.Member):
+ await ctx.send(user.mention + random.choice(killmessages))
+
+@bot.command()
+async def flashingconsole(ctx: interactions.CommandContext, text: str):
+   message = await ctx.send(f"{text}")
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)
+   await message.edit(content=f"⠀⠀⠀")
+   await message.edit(content=f"{text}")
+   await asyncio.sleep(1.7)  
+
+@bot.command()
+async def echo(ctx: interactions.CommandContext, text: str):
+	await ctx.send(f"**{text}**")
+
+def restart_bot(): 
+  os.execv(sys.executable, ['python'] + sys.argv)
+
+@bot.command()
+async def restart(ctx):
+    id = str(ctx.author.id)
+    if id == '898358037239201812':
+        await ctx.send('Restarting...')
+        restart_bot()
+    else:
+        await ctx.send("You dont have sufficient permmisions to perform this action!")
+
+@bot.command()
+async def created(ctx: interactions.CommandContext):
+        await ctx.send("Wextra Has Existed Since **October 15th 2021!**")
+
+@bot.command()
+async def quote(ctx):
+    response = requests.get("https://zenquotes.io/api/random")
+    json_data = json.loads(response.text)
+    quote_ = json_data[0]['q'] + " ~ " + json_data[0]['a']
+    await ctx.send(quote_)
+
+
+@bot.command()
+async def goofyrate(ctx, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% a retard")
+
+@bot.command()
+async def cringerate(ctx, user: discord.Member):
+ await ctx.send(f"{user.mention} is {random.randrange(101)}% cringe")
+
+@bot.command()
+async def reverse(ctx, *, text: str):
+        t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
+        await ctx.send(f"🔁 {t_rev}")
+
 
 bot.run(os.getenv("DISCORD_TOKEN"))
